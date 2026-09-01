@@ -7,9 +7,10 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<!-- =========================
+
+<!-- =========================================
      DISCORD PREVIEW
-========================= -->
+========================================= -->
 
 <meta property="og:type"
       content="website">
@@ -71,6 +72,37 @@ body {
 
 
 /* =========================================
+   GIF
+========================================= */
+
+.gif {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    z-index: 1;
+
+    opacity: 1;
+
+    transform: scale(1);
+
+    animation:
+        gifExit
+        0.8s
+        cubic-bezier(.77,0,.18,1)
+        forwards;
+
+    animation-delay: 2.5s;
+}
+
+
+/* =========================================
    IMAGE B
 ========================================= */
 
@@ -85,194 +117,31 @@ body {
 
     object-fit: contain;
 
+    z-index: 2;
+
     opacity: 0;
 
     transform: scale(1.08);
 
     filter:
-        blur(15px)
-        brightness(0.35);
+        blur(14px)
+        brightness(0.45);
 
     animation:
         imageReveal
-        2.5s
+        1.8s
         cubic-bezier(.16,1,.3,1)
         forwards;
 
-    animation-delay: 1.0s;
+    animation-delay: 2.7s;
 }
 
 
 /* =========================================
-   FIRE OVERLAY
+   TRANSITION COVER
 ========================================= */
 
-.fire {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 10;
-
-    pointer-events: none;
-
-    background:
-        radial-gradient(
-            ellipse at 50% 110%,
-            #fff7b0 0%,
-            #ffb300 8%,
-            #ff5a00 20%,
-            #c51b00 38%,
-            transparent 62%
-        );
-
-    opacity: 1;
-
-    transform:
-        translateY(0);
-
-    animation:
-        fireRise
-        2.4s
-        cubic-bezier(.65,0,.35,1)
-        forwards;
-}
-
-
-/* =========================================
-   FIRE CORE
-========================================= */
-
-.fire::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: -10%;
-    right: -10%;
-
-    bottom: -10%;
-
-    height: 70%;
-
-    background:
-
-        radial-gradient(
-            ellipse at 15% 100%,
-            #fffbd0 0%,
-            #ffb000 15%,
-            #ff3c00 32%,
-            transparent 55%
-        ),
-
-        radial-gradient(
-            ellipse at 35% 100%,
-            #fff5a0 0%,
-            #ff7500 18%,
-            #e51c00 38%,
-            transparent 58%
-        ),
-
-        radial-gradient(
-            ellipse at 55% 100%,
-            #fffbd0 0%,
-            #ff9d00 18%,
-            #ff3c00 40%,
-            transparent 60%
-        ),
-
-        radial-gradient(
-            ellipse at 80% 100%,
-            #fff5a0 0%,
-            #ff6a00 18%,
-            #d71900 40%,
-            transparent 60%
-        );
-
-    filter:
-        blur(18px);
-
-    animation:
-        flames
-        0.8s
-        ease-in-out
-        infinite alternate;
-}
-
-
-/* =========================================
-   FIRE EDGE
-========================================= */
-
-.fire::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: -5%;
-
-    bottom: 0;
-
-    width: 110%;
-
-    height: 100%;
-
-    background:
-
-        radial-gradient(
-            ellipse at 10% 100%,
-            transparent 0 12%,
-            #ff6a00 13% 15%,
-            transparent 16%
-        ),
-
-        radial-gradient(
-            ellipse at 28% 100%,
-            transparent 0 14%,
-            #ff3b00 15% 18%,
-            transparent 19%
-        ),
-
-        radial-gradient(
-            ellipse at 47% 100%,
-            transparent 0 12%,
-            #ff8a00 13% 16%,
-            transparent 17%
-        ),
-
-        radial-gradient(
-            ellipse at 67% 100%,
-            transparent 0 15%,
-            #ff3b00 16% 19%,
-            transparent 20%
-        ),
-
-        radial-gradient(
-            ellipse at 88% 100%,
-            transparent 0 12%,
-            #ff7a00 13% 16%,
-            transparent 17%
-        );
-
-    filter:
-        blur(10px);
-
-    animation:
-        flameEdge
-        0.55s
-        ease-in-out
-        infinite alternate;
-}
-
-
-/* =========================================
-   DARK SCREEN
-========================================= */
-
-.dark {
+.transition {
 
     position: fixed;
 
@@ -280,99 +149,126 @@ body {
 
     z-index: 5;
 
+    pointer-events: none;
+
     background: #050505;
 
-    pointer-events: none;
+    clip-path:
+        inset(0 0 100% 0);
 
     animation:
-        darkFade
-        2.2s
-        ease-out
+        transitionOpen
+        1.4s
+        cubic-bezier(.77,0,.18,1)
         forwards;
+
+    animation-delay: 2.4s;
 }
 
 
 /* =========================================
-   FIRE GLOW
+   CENTER LIGHT
 ========================================= */
 
-.glow {
+.light {
 
     position: fixed;
 
-    inset: 0;
+    left: 0;
+    right: 0;
 
-    z-index: 11;
+    top: 50%;
 
-    pointer-events: none;
+    height: 3px;
 
-    background:
-        radial-gradient(
-            ellipse at center bottom,
-            rgba(255,120,0,.65),
-            rgba(255,40,0,.2) 35%,
-            transparent 65%
-        );
+    z-index: 10;
 
-    opacity: 1;
-
-    animation:
-        glowFade
-        2s
-        ease-out
-        forwards;
-}
-
-
-/* =========================================
-   SPARKS
-========================================= */
-
-.sparks {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 15;
-
-    pointer-events: none;
-
-    overflow: hidden;
-}
-
-.spark {
-
-    position: absolute;
-
-    bottom: -20px;
-
-    width: 4px;
-    height: 4px;
-
-    border-radius: 50%;
-
-    background: #ffd36a;
+    background: white;
 
     box-shadow:
-        0 0 6px #ff9d00,
-        0 0 14px #ff3b00;
+        0 0 8px white,
+        0 0 20px white,
+        0 0 45px white;
+
+    transform:
+        scaleX(0);
+
+    opacity: 0;
+
+    pointer-events: none;
 
     animation:
-        sparkRise
-        var(--duration)
+        lightSweep
+        0.8s
         ease-out
         forwards;
 
-    left: var(--left);
-
-    animation-delay:
-        var(--delay);
+    animation-delay: 2.45s;
 }
 
 
 /* =========================================
-   ANIMATIONS
+   FLASH
+========================================= */
+
+.flash {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 20;
+
+    background: white;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    animation:
+        flash
+        0.45s
+        ease-out
+        forwards;
+
+    animation-delay: 2.75s;
+}
+
+
+/* =========================================
+   GIF EXIT
+========================================= */
+
+@keyframes gifExit {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.025);
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            scale(1.06);
+    }
+}
+
+
+/* =========================================
+   IMAGE B REVEAL
 ========================================= */
 
 @keyframes imageReveal {
@@ -385,26 +281,26 @@ body {
             scale(1.08);
 
         filter:
-            blur(15px)
-            brightness(0.35);
+            blur(14px)
+            brightness(0.45);
     }
 
-    45% {
+    35% {
 
-        opacity: 0.7;
+        opacity: 0.35;
 
         filter:
-            blur(5px)
-            brightness(0.75);
+            blur(7px)
+            brightness(0.7);
     }
 
-    75% {
+    70% {
 
         opacity: 1;
 
         filter:
-            blur(1px)
-            brightness(1);
+            blur(2px)
+            brightness(0.95);
     }
 
     100% {
@@ -422,138 +318,71 @@ body {
 
 
 /* =========================================
-   FIRE RISE
+   TRANSITION
 ========================================= */
 
-@keyframes fireRise {
+@keyframes transitionOpen {
 
     0% {
+
+        clip-path:
+            inset(0 0 100% 0);
+    }
+
+    20% {
+
+        clip-path:
+            inset(0 0 70% 0);
+    }
+
+    50% {
+
+        clip-path:
+            inset(0 0 45% 0);
+    }
+
+    75% {
+
+        clip-path:
+            inset(0 0 15% 0);
+    }
+
+    100% {
 
         clip-path:
             inset(0 0 0 0);
     }
-
-    35% {
-
-        clip-path:
-            inset(0 0 0 0);
-    }
-
-    100% {
-
-        clip-path:
-            inset(100% 0 0 0);
-    }
 }
 
 
 /* =========================================
-   FLAMES
+   LIGHT SWEEP
 ========================================= */
 
-@keyframes flames {
-
-    0% {
-
-        transform:
-            scaleX(1)
-            translateY(0);
-    }
-
-    100% {
-
-        transform:
-            scaleX(1.08)
-            translateY(-25px);
-    }
-}
-
-
-/* =========================================
-   FIRE EDGE
-========================================= */
-
-@keyframes flameEdge {
-
-    0% {
-
-        transform:
-            scaleX(1)
-            translateY(0);
-    }
-
-    100% {
-
-        transform:
-            scaleX(1.04)
-            translateY(-35px);
-    }
-}
-
-
-/* =========================================
-   DARK FADE
-========================================= */
-
-@keyframes darkFade {
-
-    0% {
-        opacity: 1;
-    }
-
-    55% {
-        opacity: .8;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-
-/* =========================================
-   GLOW FADE
-========================================= */
-
-@keyframes glowFade {
-
-    0% {
-        opacity: 1;
-    }
-
-    45% {
-        opacity: .8;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-
-/* =========================================
-   SPARK RISE
-========================================= */
-
-@keyframes sparkRise {
+@keyframes lightSweep {
 
     0% {
 
         opacity: 0;
 
         transform:
-            translate(0, 0)
-            scale(.5);
+            scaleX(0);
     }
 
-    10% {
+    20% {
 
         opacity: 1;
+
+        transform:
+            scaleX(0.25);
     }
 
-    70% {
+    50% {
 
         opacity: 1;
+
+        transform:
+            scaleX(1);
     }
 
     100% {
@@ -561,11 +390,27 @@ body {
         opacity: 0;
 
         transform:
-            translate(
-                var(--drift),
-                -110vh
-            )
-            scale(.1);
+            scaleX(1);
+    }
+}
+
+
+/* =========================================
+   FLASH
+========================================= */
+
+@keyframes flash {
+
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 0;
     }
 }
 
@@ -575,6 +420,13 @@ body {
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
+    .gif {
+
+        animation: none;
+
+        opacity: 0;
+    }
 
     .image {
 
@@ -587,10 +439,9 @@ body {
         filter: none;
     }
 
-    .fire,
-    .dark,
-    .glow,
-    .sparks {
+    .transition,
+    .light,
+    .flash {
 
         display: none;
     }
@@ -604,9 +455,20 @@ body {
 <body>
 
 
-<!-- =====================================
-     IMAGE B
-===================================== -->
+<!-- =========================================
+     1. GIF FIRST
+========================================= -->
+
+<img
+    class="gif"
+    src="preview.gif"
+    alt="Preview"
+>
+
+
+<!-- =========================================
+     2. IMAGE B
+========================================= -->
 
 <img
     class="image"
@@ -615,81 +477,27 @@ body {
 >
 
 
-<!-- =====================================
-     DARK SCREEN
-===================================== -->
+<!-- =========================================
+     3. TRANSITION
+========================================= -->
 
-<div class="dark"></div>
-
-
-<!-- =====================================
-     FIRE
-===================================== -->
-
-<div class="fire"></div>
+<div class="transition"></div>
 
 
-<!-- =====================================
-     GLOW
-===================================== -->
+<!-- =========================================
+     4. LIGHT
+========================================= -->
 
-<div class="glow"></div>
-
-
-<!-- =====================================
-     SPARKS
-===================================== -->
-
-<div class="sparks"></div>
+<div class="light"></div>
 
 
-<script>
+<!-- =========================================
+     5. FLASH
+========================================= -->
 
-/* =========================================
-   CREATE FIRE SPARKS
-========================================= */
-
-const sparks =
-    document.querySelector(".sparks");
-
-for (let i = 0; i < 45; i++) {
-
-    const spark =
-        document.createElement("div");
-
-    spark.className = "spark";
-
-    spark.style.setProperty(
-        "--left",
-        Math.random() * 100 + "%"
-    );
-
-    spark.style.setProperty(
-        "--duration",
-        (1.2 + Math.random() * 1.8) + "s"
-    );
-
-    spark.style.setProperty(
-        "--delay",
-        Math.random() * 1.2 + "s"
-    );
-
-    spark.style.setProperty(
-        "--drift",
-        (-80 + Math.random() * 160) + "px"
-    );
-
-    spark.style.width =
-        (2 + Math.random() * 4) + "px";
-
-    spark.style.height =
-        spark.style.width;
-
-    sparks.appendChild(spark);
-}
-
-</script>
+<div class="flash"></div>
 
 
 </body>
+
 </html>
