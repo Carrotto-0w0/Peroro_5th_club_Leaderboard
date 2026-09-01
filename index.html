@@ -5,16 +5,31 @@
 
     <!-- Discord Preview -->
     <meta property="og:title" content="">
+
     <meta property="og:description" content="">
-    <meta property="og:image" content="https://karansin123.github.io/discord-image-switch/image-A.png">
+
+    <meta property="og:image"
+          content="https://karansin123.github.io/discord-image-switch/image-A.png">
+
     <meta property="og:image:type" content="image/png">
+
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+
     <meta property="og:type" content="website">
 
-    <title>Image</title>
+    <!-- Preview สำหรับบางแพลตฟอร์ม -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image"
+          content="https://karansin123.github.io/discord-image-switch/image-A.png">
+
+    <title></title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         html, body {
             margin: 0;
             padding: 0;
@@ -31,18 +46,18 @@
         }
 
         img {
+            display: block;
             width: 100vw;
             height: 100vh;
             object-fit: contain;
-            display: block;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- เปิดเว็บมา = IMAGE B ทันที -->
-    <img src="image-B.png" alt="Image">
+    <!-- เมื่อเปิดเว็บ จะเป็น IMAGE B ทันที -->
+    <img src="image-B.png" alt="">
 
 </body>
 </html>
