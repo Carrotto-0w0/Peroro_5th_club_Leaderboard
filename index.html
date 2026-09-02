@@ -11,7 +11,6 @@
 
 <!-- =====================================================
      DISCORD EMBED / OG PREVIEW
-     GIF ใช้สำหรับ Discord Preview เท่านั้น
      ===================================================== -->
 
 <meta property="og:type"
@@ -59,24 +58,31 @@
 }
 
 html {
+
     margin: 0;
     padding: 0;
+
     background: #000;
+
     scroll-behavior: smooth;
 }
 
+
 body {
+
     margin: 0;
     padding: 0;
 
     width: 100%;
 
     background:
+
         radial-gradient(
             circle at 50% 20%,
-            rgba(40, 110, 160, 0.08),
+            rgba(40,110,160,0.08),
             transparent 45%
         ),
+
         #020407;
 
     color: white;
@@ -91,7 +97,7 @@ body {
 
 
 /* =====================================================
-   CINEMATIC INTRO
+   CINEMATIC OPENING
    ===================================================== */
 
 .intro {
@@ -114,9 +120,9 @@ body {
 }
 
 
-/* -----------------------------------------------------
+/* =====================================================
    INTRO TITLE
-   ----------------------------------------------------- */
+   ===================================================== */
 
 .intro-title {
 
@@ -141,9 +147,14 @@ body {
         cubic-bezier(.16,1,.3,1)
         forwards;
 
-    animation-delay: 0.8s;
+    animation-delay:
+        0.8s;
 }
 
+
+/* -----------------------------------------------------
+   Top 5
+   ----------------------------------------------------- */
 
 .intro-small {
 
@@ -151,16 +162,24 @@ body {
 
     margin-bottom: 12px;
 
-    font-size: clamp(11px, 1.2vw, 18px);
+    font-size:
+        clamp(14px, 1.6vw, 24px);
 
-    font-weight: 600;
+    font-weight: 500;
 
     letter-spacing:
-        clamp(5px, 1vw, 12px);
+        clamp(4px, 0.8vw, 9px);
 
-    color: rgba(255,255,255,0.75);
+    color:
+        rgba(255,255,255,0.85);
+
+    text-transform: none;
 }
 
+
+/* -----------------------------------------------------
+   GA32 - Perorodzila
+   ----------------------------------------------------- */
 
 .intro-main {
 
@@ -172,18 +191,26 @@ body {
         serif;
 
     font-size:
-        clamp(38px, 7vw, 110px);
+        clamp(30px, 5vw, 82px);
 
     letter-spacing:
-        clamp(5px, 1.2vw, 16px);
+        clamp(2px, 0.5vw, 7px);
 
     color: #fff;
 
     text-shadow:
-        0 0 8px rgba(255,255,255,0.25),
-        0 0 25px rgba(180,220,255,0.12);
+
+        0 0 8px
+        rgba(255,255,255,0.25),
+
+        0 0 25px
+        rgba(180,220,255,0.12);
 }
 
+
+/* -----------------------------------------------------
+   TITLE UNDERLINE
+   ----------------------------------------------------- */
 
 .intro-line {
 
@@ -194,11 +221,16 @@ body {
     margin:
         18px auto 0;
 
-    background: rgba(255,255,255,0.9);
+    background:
+        rgba(255,255,255,0.9);
 
     box-shadow:
-        0 0 10px rgba(255,255,255,0.7),
-        0 0 25px rgba(180,220,255,0.3);
+
+        0 0 10px
+        rgba(255,255,255,0.7),
+
+        0 0 25px
+        rgba(180,220,255,0.3);
 
     animation:
         introLine
@@ -206,13 +238,14 @@ body {
         cubic-bezier(.77,0,.18,1)
         forwards;
 
-    animation-delay: 1.35s;
+    animation-delay:
+        1.35s;
 }
 
 
-/* -----------------------------------------------------
+/* =====================================================
    SCAN LIGHT
-   ----------------------------------------------------- */
+   ===================================================== */
 
 .scan {
 
@@ -228,9 +261,14 @@ body {
     background: #fff;
 
     box-shadow:
+
         0 0 10px #fff,
-        0 0 30px rgba(255,255,255,0.8),
-        0 0 70px rgba(180,220,255,0.5);
+
+        0 0 30px
+        rgba(255,255,255,0.8),
+
+        0 0 70px
+        rgba(180,220,255,0.5);
 
     transform:
         translateY(0)
@@ -244,9 +282,56 @@ body {
 }
 
 
-/* -----------------------------------------------------
-   FINAL FLASH
-   ----------------------------------------------------- */
+/* =====================================================
+   FINAL LIGHT
+   ===================================================== */
+
+.final-light {
+
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    width: 10px;
+    height: 10px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    box-shadow:
+
+        0 0 30px #fff,
+
+        0 0 100px
+        rgba(180,220,255,0.9),
+
+        0 0 250px
+        rgba(100,190,255,0.5);
+
+    z-index: 105;
+
+    pointer-events: none;
+
+    animation:
+        finalLight
+        0.8s
+        ease-out
+        forwards;
+
+    animation-delay:
+        2.25s;
+}
+
+
+/* =====================================================
+   FLASH
+   ===================================================== */
 
 .flash {
 
@@ -268,44 +353,8 @@ body {
         ease-out
         forwards;
 
-    animation-delay: 2.45s;
-}
-
-
-.final-light {
-
-    position: fixed;
-
-    left: 50%;
-    top: 50%;
-
-    width: 10px;
-    height: 10px;
-
-    transform:
-        translate(-50%, -50%)
-        scale(0);
-
-    border-radius: 50%;
-
-    background: #fff;
-
-    box-shadow:
-        0 0 30px #fff,
-        0 0 100px rgba(180,220,255,0.9),
-        0 0 250px rgba(100,190,255,0.5);
-
-    z-index: 105;
-
-    pointer-events: none;
-
-    animation:
-        finalLight
-        0.8s
-        ease-out
-        forwards;
-
-    animation-delay: 2.25s;
+    animation-delay:
+        2.45s;
 }
 
 
@@ -335,9 +384,9 @@ body {
 }
 
 
-/* -----------------------------------------------------
+/* =====================================================
    IMAGE B
-   ----------------------------------------------------- */
+   ===================================================== */
 
 .hero-image {
 
@@ -352,7 +401,8 @@ body {
 
     opacity: 0;
 
-    transform: scale(1.12);
+    transform:
+        scale(1.12);
 
     filter:
         blur(18px)
@@ -364,57 +414,70 @@ body {
         cubic-bezier(.16,1,.3,1)
         forwards;
 
-    animation-delay: 2.75s;
+    animation-delay:
+        2.75s;
 
     pointer-events: none;
 }
 
 
 /* =====================================================
-   FLOATING BLUE TRIANGLES
+   FLOATING TRIANGLES
    ===================================================== */
 
 /*
-   สำคัญ:
-   z-index ต่ำกว่า hero-image
+   ใช้ clip-path แทน border triangle
 
-   ดังนั้นสามเหลี่ยมจะสามารถลอยผ่าน
-   "พื้นที่ของ Hero" ได้ แต่จะไม่ทับ Image B
+   เพื่อให้ทุก triangle เป็น
+   "สามเหลี่ยมด้านเท่า" จริง
+
+   width = size
+   height = size × 0.8660254
+
+   ซึ่งเป็นอัตราส่วนของ
+   equilateral triangle
 */
 
 .triangle {
 
     position: fixed;
 
-    left: var(--left);
+    left:
+        var(--left);
 
-    bottom: -90px;
+    bottom:
+        -80px;
 
-    width: 0;
-    height: 0;
+    width:
+        var(--size);
 
-    border-left:
-        calc(var(--size) / 2)
-        solid transparent;
+    height:
+        calc(
+            var(--size) * 0.8660254
+        );
 
-    border-right:
-        calc(var(--size) / 2)
-        solid transparent;
-
-    border-bottom:
-        calc(var(--size) * 1.7)
-        solid rgba(
+    background:
+        rgba(
             120,
             205,
             255,
             0.18
         );
 
+    clip-path:
+        polygon(
+            50% 0%,
+            100% 100%,
+            0% 100%
+        );
+
     filter:
+
         drop-shadow(
             0 0 5px
             rgba(100,200,255,0.25)
         )
+
         drop-shadow(
             0 0 14px
             rgba(100,200,255,0.12)
@@ -423,13 +486,20 @@ body {
     pointer-events: none;
 
     /*
-       อยู่หลัง Image B
+       ต่ำกว่า Image B
     */
+
     z-index: 2;
+
+    /*
+       ทำให้เหมือนแสง
+       และไม่ทำให้ภาพมืด
+    */
 
     mix-blend-mode: screen;
 
     animation:
+
         floatUp
         var(--duration)
         linear
@@ -439,6 +509,10 @@ body {
         var(--delay);
 }
 
+
+/* =====================================================
+   TRIANGLE FLOAT ANIMATION
+   ===================================================== */
 
 @keyframes floatUp {
 
@@ -458,19 +532,22 @@ body {
 
     8% {
 
-        opacity: 0.8;
+        opacity:
+            0.8;
     }
 
 
     45% {
 
-        opacity: 0.65;
+        opacity:
+            0.65;
     }
 
 
     75% {
 
-        opacity: 0.45;
+        opacity:
+            0.45;
     }
 
 
@@ -582,9 +659,9 @@ body {
 }
 
 
-/* -----------------------------------------------------
+/* =====================================================
    SECTION TITLE
-   ----------------------------------------------------- */
+   ===================================================== */
 
 .section-title {
 
@@ -626,241 +703,15 @@ body {
     color: #fff;
 
     text-shadow:
+
         0 0 15px
         rgba(150,210,255,0.15);
 }
 
 
 /* =====================================================
-   RANK LIST
-   ===================================================== */
-
-.rank-list {
-
-    width: min(
-        850px,
-        94%
-    );
-
-    margin: 0 auto;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 10px;
-}
-
-
-/* -----------------------------------------------------
-   RANK CARD
-   ----------------------------------------------------- */
-
-.rank-card {
-
-    position: relative;
-
-    display: grid;
-
-    grid-template-columns:
-        80px
-        1fr
-        110px;
-
-    align-items: center;
-
-    min-height: 70px;
-
-    padding:
-        0 24px;
-
-    border:
-        1px solid
-        rgba(130,190,220,0.10);
-
-    border-radius: 4px;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,0.025),
-            rgba(70,150,200,0.045)
-        );
-
-    backdrop-filter:
-        blur(5px);
-
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        background 0.3s ease;
-
-    opacity: 0;
-
-    transform:
-        translateY(35px);
-}
-
-
-.rank-card.show {
-
-    opacity: 1;
-
-    transform:
-        translateY(0);
-
-    transition:
-        opacity 0.7s
-        cubic-bezier(.16,1,.3,1),
-        transform 0.7s
-        cubic-bezier(.16,1,.3,1);
-}
-
-
-.rank-card:hover {
-
-    transform:
-        translateX(5px);
-
-    border-color:
-        rgba(130,210,255,0.28);
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,0.04),
-            rgba(70,150,200,0.08)
-        );
-}
-
-
-/* -----------------------------------------------------
-   RANK NUMBER
-   ----------------------------------------------------- */
-
-.rank {
-
-    font-size: 13px;
-
-    letter-spacing: 2px;
-
-    color:
-        rgba(150,210,240,0.65);
-}
-
-
-/* -----------------------------------------------------
-   PLAYER NAME
-   ----------------------------------------------------- */
-
-.player-name {
-
-    font-size: 17px;
-
-    color:
-        rgba(255,255,255,0.92);
-
-    letter-spacing: 0.5px;
-}
-
-
-/* -----------------------------------------------------
-   SCORE
-   ----------------------------------------------------- */
-
-.score {
-
-    text-align: right;
-
-    font-size: 15px;
-
-    font-weight: 600;
-
-    color:
-        rgba(190,225,245,0.75);
-
-    letter-spacing: 1px;
-}
-
-
-/* =====================================================
-   #N/A WARNING
-   ===================================================== */
-
-.warning {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: 18px;
-    height: 18px;
-
-    margin-left: 8px;
-
-    border:
-        1.5px solid
-        rgba(255,70,70,0.85);
-
-    border-radius: 50%;
-
-    color:
-        #ff4d4d;
-
-    font-size: 12px;
-
-    font-weight: 900;
-
-    line-height: 1;
-
-    text-shadow:
-        0 0 5px
-        rgba(255,50,50,0.5);
-
-    box-shadow:
-        0 0 6px
-        rgba(255,50,50,0.25);
-
-    vertical-align: middle;
-
-    animation:
-        warningPulse
-        2.5s
-        ease-in-out
-        infinite;
-}
-
-
-@keyframes warningPulse {
-
-    0%, 100% {
-
-        opacity: 0.6;
-
-        transform:
-            scale(0.95);
-    }
-
-
-    50% {
-
-        opacity: 1;
-
-        transform:
-            scale(1.05);
-    }
-}
-
-
-/* =====================================================
    HYAKKIYAKO GLOW
    ===================================================== */
-
-/*
-   ใช้กับข้อความ HYAKKIYAKO
-*/
 
 .hyakkiyako-glow {
 
@@ -877,19 +728,22 @@ body {
     0%, 100% {
 
         text-shadow:
+
             0 0 3px
             rgba(255,255,255,0.30),
 
             0 0 8px
             rgba(255,255,255,0.12);
 
-        opacity: 0.92;
+        opacity:
+            0.92;
     }
 
 
     50% {
 
         text-shadow:
+
             0 0 5px
             rgba(255,255,255,0.65),
 
@@ -899,7 +753,269 @@ body {
             0 0 25px
             rgba(180,220,255,0.12);
 
-        opacity: 1;
+        opacity:
+            1;
+    }
+}
+
+
+/* =====================================================
+   RANK LIST
+   ===================================================== */
+
+.rank-list {
+
+    width:
+        min(
+            850px,
+            94%
+        );
+
+    margin:
+        0 auto;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        10px;
+}
+
+
+/* =====================================================
+   RANK CARD
+   ===================================================== */
+
+.rank-card {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        80px
+        1fr
+        110px;
+
+    align-items: center;
+
+    min-height:
+        70px;
+
+    padding:
+        0 24px;
+
+    border:
+        1px solid
+        rgba(130,190,220,0.10);
+
+    border-radius:
+        4px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025),
+            rgba(70,150,200,0.045)
+        );
+
+    backdrop-filter:
+        blur(5px);
+
+    transition:
+
+        transform 0.3s ease,
+
+        border-color 0.3s ease,
+
+        background 0.3s ease;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(35px);
+}
+
+
+.rank-card.show {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+
+    transition:
+
+        opacity 0.7s
+        cubic-bezier(.16,1,.3,1),
+
+        transform 0.7s
+        cubic-bezier(.16,1,.3,1);
+}
+
+
+.rank-card:hover {
+
+    transform:
+        translateX(5px);
+
+    border-color:
+        rgba(130,210,255,0.28);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.04),
+            rgba(70,150,200,0.08)
+        );
+}
+
+
+/* =====================================================
+   RANK NUMBER
+   ===================================================== */
+
+.rank {
+
+    font-size:
+        13px;
+
+    letter-spacing:
+        2px;
+
+    color:
+        rgba(150,210,240,0.65);
+}
+
+
+/* =====================================================
+   PLAYER NAME
+   ===================================================== */
+
+.player-name {
+
+    font-size:
+        17px;
+
+    color:
+        rgba(255,255,255,0.92);
+
+    letter-spacing:
+        0.5px;
+}
+
+
+/* =====================================================
+   SCORE
+   ===================================================== */
+
+.score {
+
+    text-align:
+        right;
+
+    font-size:
+        15px;
+
+    font-weight:
+        600;
+
+    color:
+        rgba(190,225,245,0.75);
+
+    letter-spacing:
+        1px;
+}
+
+
+/* =====================================================
+   #N/A WARNING
+   ===================================================== */
+
+.warning {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        18px;
+
+    height:
+        18px;
+
+    margin-left:
+        8px;
+
+    border:
+        1.5px solid
+        rgba(255,70,70,0.85);
+
+    border-radius:
+        50%;
+
+    color:
+        #ff4d4d;
+
+    font-size:
+        12px;
+
+    font-weight:
+        900;
+
+    line-height:
+        1;
+
+    text-shadow:
+        0 0 5px
+        rgba(255,50,50,0.5);
+
+    box-shadow:
+        0 0 6px
+        rgba(255,50,50,0.25);
+
+    vertical-align:
+        middle;
+
+    animation:
+        warningPulse
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes warningPulse {
+
+    0%, 100% {
+
+        opacity:
+            0.6;
+
+        transform:
+            scale(0.95);
+    }
+
+
+    50% {
+
+        opacity:
+            1;
+
+        transform:
+            scale(1.05);
     }
 }
 
@@ -910,33 +1026,39 @@ body {
 
 .footer {
 
-    position: relative;
+    position:
+        relative;
 
-    z-index: 6;
+    z-index:
+        6;
 
     padding:
         60px 20px 80px;
 
-    text-align: center;
+    text-align:
+        center;
 
     color:
         rgba(255,255,255,0.25);
 
-    font-size: 10px;
+    font-size:
+        10px;
 
-    letter-spacing: 4px;
+    letter-spacing:
+        4px;
 }
 
 
 /* =====================================================
-   ANIMATIONS
+   CINEMATIC ANIMATIONS
    ===================================================== */
 
 @keyframes revealImage {
 
     0% {
 
-        opacity: 0;
+        opacity:
+            0;
 
         transform:
             scale(1.12);
@@ -949,7 +1071,8 @@ body {
 
     45% {
 
-        opacity: 1;
+        opacity:
+            1;
 
         filter:
             blur(4px)
@@ -959,7 +1082,8 @@ body {
 
     100% {
 
-        opacity: 1;
+        opacity:
+            1;
 
         transform:
             scale(1);
@@ -1026,7 +1150,8 @@ body {
 
     0% {
 
-        opacity: 0;
+        opacity:
+            0;
 
         transform:
             translate(-50%, -50%)
@@ -1037,7 +1162,8 @@ body {
 
     100% {
 
-        opacity: 1;
+        opacity:
+            1;
 
         transform:
             translate(-50%, -50%)
@@ -1051,13 +1177,15 @@ body {
 
     0% {
 
-        width: 0;
+        width:
+            0;
     }
 
 
     100% {
 
-        width: 75%;
+        width:
+            75%;
     }
 }
 
@@ -1066,19 +1194,22 @@ body {
 
     0% {
 
-        opacity: 0;
+        opacity:
+            0;
     }
 
 
     15% {
 
-        opacity: 0.9;
+        opacity:
+            0.9;
     }
 
 
     100% {
 
-        opacity: 0;
+        opacity:
+            0;
     }
 }
 
@@ -1091,7 +1222,8 @@ body {
             translate(-50%, -50%)
             scale(0);
 
-        opacity: 0;
+        opacity:
+            0;
     }
 
 
@@ -1101,7 +1233,8 @@ body {
             translate(-50%, -50%)
             scale(20);
 
-        opacity: 1;
+        opacity:
+            1;
     }
 
 
@@ -1111,7 +1244,8 @@ body {
             translate(-50%, -50%)
             scale(120);
 
-        opacity: 0;
+        opacity:
+            0;
     }
 }
 
@@ -1124,7 +1258,8 @@ body {
             translateX(-50%)
             translateY(0);
 
-        opacity: 0.45;
+        opacity:
+            0.45;
     }
 
 
@@ -1134,7 +1269,8 @@ body {
             translateX(-50%)
             translateY(7px);
 
-        opacity: 0.9;
+        opacity:
+            0.9;
     }
 }
 
@@ -1147,7 +1283,8 @@ body {
 
     .hero {
 
-        min-height: 500px;
+        min-height:
+            500px;
     }
 
 
@@ -1158,7 +1295,8 @@ body {
             1fr
             80px;
 
-        min-height: 62px;
+        min-height:
+            62px;
 
         padding:
             0 15px;
@@ -1167,32 +1305,29 @@ body {
 
     .player-name {
 
-        font-size: 14px;
+        font-size:
+            14px;
     }
 
 
     .rank {
 
-        font-size: 11px;
+        font-size:
+            11px;
     }
 
 
     .score {
 
-        font-size: 12px;
+        font-size:
+            12px;
     }
 
 
     .leaderboard {
 
-        padding-top: 70px;
-    }
-
-
-    .triangle {
-
-        transform-origin:
-            center;
+        padding-top:
+            70px;
     }
 }
 
@@ -1204,19 +1339,25 @@ body {
 @media (prefers-reduced-motion: reduce) {
 
     html {
-        scroll-behavior: auto;
+
+        scroll-behavior:
+            auto;
     }
 
 
     .hero-image {
 
-        animation: none;
+        animation:
+            none;
 
-        opacity: 1;
+        opacity:
+            1;
 
-        transform: none;
+        transform:
+            none;
 
-        filter: none;
+        filter:
+            none;
     }
 
 
@@ -1225,28 +1366,39 @@ body {
     .flash,
     .final-light {
 
-        display: none;
+        display:
+            none;
     }
 
 
     .triangle {
 
-        animation: none;
+        animation:
+            none;
     }
 
 
     .rank-card {
 
-        opacity: 1;
+        opacity:
+            1;
 
-        transform: none;
+        transform:
+            none;
     }
 
 
-    .hyakkiyako-glow,
-    .warningPulse {
+    .hyakkiyako-glow {
 
-        animation: none;
+        animation:
+            none;
+    }
+
+
+    .warning {
+
+        animation:
+            none;
     }
 }
 
@@ -1259,10 +1411,7 @@ body {
 
 
 <!-- =====================================================
-     FLOATING TRIANGLES
-
-     อยู่หลัง Image B
-     แต่ลอยตลอดความสูงของเว็บไซต์
+     FLOATING EQUILATERAL TRIANGLES
      ===================================================== -->
 
 <div class="triangle"
@@ -1275,170 +1424,187 @@ body {
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:9%;
-        --size:12px;
+        --size:18px;
         --duration:14s;
         --delay:2s;
         --drift:-25px;
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:15%;
-        --size:22px;
+        --size:18px;
         --duration:13s;
         --delay:5s;
         --drift:35px;
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:22%;
-        --size:14px;
+        --size:18px;
         --duration:10s;
         --delay:1s;
         --drift:-40px;
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:29%;
-        --size:19px;
+        --size:18px;
         --duration:15s;
         --delay:7s;
         --drift:25px;
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:36%;
-        --size:11px;
+        --size:18px;
         --duration:12s;
         --delay:4s;
         --drift:-30px;
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:43%;
-        --size:24px;
+        --size:18px;
         --duration:16s;
         --delay:8s;
         --drift:45px;
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:50%;
-        --size:13px;
+        --size:18px;
         --duration:11s;
         --delay:3s;
         --drift:-20px;
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:57%;
-        --size:20px;
+        --size:18px;
         --duration:14s;
         --delay:6s;
         --drift:35px;
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:63%;
-        --size:15px;
+        --size:18px;
         --duration:12s;
         --delay:1s;
         --drift:-35px;
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:69%;
-        --size:23px;
+        --size:18px;
         --duration:17s;
         --delay:9s;
         --drift:30px;
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:75%;
-        --size:12px;
+        --size:18px;
         --duration:11s;
         --delay:5s;
         --drift:-45px;
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:81%;
-        --size:19px;
+        --size:18px;
         --duration:15s;
         --delay:2s;
         --drift:25px;
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:87%;
-        --size:14px;
+        --size:18px;
         --duration:13s;
         --delay:7s;
         --drift:-30px;
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:93%;
-        --size:21px;
+        --size:18px;
         --duration:16s;
         --delay:4s;
         --drift:40px;
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:97%;
-        --size:11px;
+        --size:18px;
         --duration:12s;
         --delay:10s;
         --drift:-20px;
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:18%;
-        --size:16px;
+        --size:18px;
         --duration:18s;
         --delay:11s;
         --drift:50px;
      ">
 </div>
 
+
 <div class="triangle"
      style="
         --left:72%;
-        --size:17px;
+        --size:18px;
         --duration:19s;
         --delay:13s;
         --drift:-50px;
@@ -1454,17 +1620,22 @@ body {
 
     <div class="intro-title">
 
+        <!-- ข้อความใหม่ -->
+
         <span class="intro-small">
-            PERORO 5TH CLUB
+            Top 5
         </span>
 
+
         <span class="intro-main">
-            TOP 5
+            GA32 - Perorodzila
         </span>
+
 
         <div class="intro-line"></div>
 
     </div>
+
 
     <div class="scan"></div>
 
@@ -1517,6 +1688,7 @@ body {
             PERORO 5TH CLUB
         </div>
 
+
         <h1 class="hyakkiyako-glow">
             HYAKKIYAKO
         </h1>
@@ -1527,7 +1699,9 @@ body {
     <div class="rank-list">
 
 
-        <!-- #6 -->
+        <!-- =================================================
+             #6
+             ================================================= -->
 
         <div class="rank-card">
 
@@ -2231,7 +2405,6 @@ body {
 
     </div>
 
-
 </section>
 
 
@@ -2255,8 +2428,6 @@ body {
 
 /* =====================================================
    RANK CARD SCROLL REVEAL
-
-   การ์ดจะค่อย ๆ ปรากฏเมื่อเลื่อนลงมาถึง
    ===================================================== */
 
 const cards =
@@ -2292,7 +2463,9 @@ const observer =
         },
 
         {
-            threshold: 0.12,
+
+            threshold:
+                0.12,
 
             rootMargin:
                 "0px 0px -40px 0px"
@@ -2311,8 +2484,7 @@ cards.forEach(
 
 
 /* =====================================================
-   ทำให้การ์ดที่อยู่ด้านบนแสดงได้ทันที
-   หลัง transition จบ
+   SHOW FIRST CARDS AFTER OPENING
    ===================================================== */
 
 window.addEventListener(
@@ -2321,12 +2493,6 @@ window.addEventListener(
 
         setTimeout(
             () => {
-
-                /*
-                   ให้การ์ดแรก ๆ พร้อม
-                   สำหรับกรณีที่ผู้ใช้เปิด
-                   บนหน้าจอขนาดใหญ่
-                */
 
                 cards.forEach(
                     (card, index) => {
