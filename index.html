@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,9 +8,9 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<!-- =========================================
+<!-- =================================================
      DISCORD PREVIEW
-========================================= -->
+================================================= -->
 
 <meta property="og:type"
       content="website">
@@ -41,71 +42,45 @@
 <meta name="twitter:image"
       content="https://carrotto-0w0.github.io/Peroro_5th_club_Leaderboard/preview.gif">
 
+
 <title>Peroro 5th Club Leaderboard</title>
 
 
 <style>
 
-/* =========================================
+/* =================================================
    RESET
-========================================= */
+================================================= */
 
 * {
     box-sizing: border-box;
 }
 
-html,
+html {
+    scroll-behavior: smooth;
+}
+
 body {
+
     margin: 0;
-    padding: 0;
 
-    width: 100%;
-    height: 100%;
+    background:
+        #05070a;
 
-    overflow: hidden;
+    color: white;
 
-    background: #000;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow-x: hidden;
 }
 
 
-/* =========================================
-   IMAGE B
-========================================= */
-
-.image {
-
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-
-    z-index: 1;
-
-    opacity: 0;
-
-    transform: scale(1.08);
-
-    filter:
-        blur(14px)
-        brightness(.55);
-
-    animation:
-        revealImage
-        1.5s
-        cubic-bezier(.16,1,.3,1)
-        forwards;
-
-    animation-delay: 2.75s;
-}
-
-
-/* =========================================
-   BLACK INTRO
-========================================= */
+/* =================================================
+   OPENING SCREEN
+================================================= */
 
 .intro {
 
@@ -113,7 +88,7 @@ body {
 
     inset: 0;
 
-    z-index: 10;
+    z-index: 100;
 
     background: #050505;
 
@@ -130,16 +105,17 @@ body {
 }
 
 
-/* =========================================
-   CENTER LINE
-========================================= */
+/* =================================================
+   CENTER SCAN
+================================================= */
 
 .scan {
 
     position: absolute;
 
-    left: 0;
-    right: 0;
+    left: -10%;
+
+    width: 120%;
 
     top: 50%;
 
@@ -168,9 +144,9 @@ body {
 }
 
 
-/* =========================================
-   TEXT
-========================================= */
+/* =================================================
+   TITLE
+================================================= */
 
 .title {
 
@@ -183,13 +159,6 @@ body {
         translate(-50%, -50%);
 
     text-align: center;
-
-    color: white;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
 
     white-space: nowrap;
 
@@ -204,11 +173,6 @@ body {
     animation-delay:
         .9s;
 }
-
-
-/* =========================================
-   TOP 5
-========================================= */
 
 .top {
 
@@ -226,15 +190,7 @@ body {
         .35em;
 
     opacity: .85;
-
-    text-transform:
-        uppercase;
 }
-
-
-/* =========================================
-   PERORO
-========================================= */
 
 .peroro {
 
@@ -253,18 +209,10 @@ body {
     margin-left:
         .12em;
 
-    text-transform:
-        uppercase;
-
     text-shadow:
         0 0 8px rgba(255,255,255,.5),
         0 0 25px rgba(255,255,255,.25);
 }
-
-
-/* =========================================
-   SMALL LINE UNDER TEXT
-========================================= */
 
 .title::after {
 
@@ -296,9 +244,9 @@ body {
 }
 
 
-/* =========================================
+/* =================================================
    FLASH
-========================================= */
+================================================= */
 
 .flash {
 
@@ -306,7 +254,7 @@ body {
 
     inset: 0;
 
-    z-index: 20;
+    z-index: 110;
 
     pointer-events: none;
 
@@ -325,133 +273,522 @@ body {
 }
 
 
-/* =========================================
-   FINAL LIGHT
-========================================= */
+/* =================================================
+   IMAGE B
+================================================= */
 
-.finalLight {
+.hero {
 
-    position: fixed;
+    position: relative;
 
-    left: 50%;
-    top: 50%;
+    width: 100%;
 
-    width: 10px;
-    height: 10px;
+    height: 100vh;
 
-    z-index: 19;
+    min-height: 600px;
 
-    border-radius: 50%;
+    display: flex;
 
-    background: white;
+    align-items: center;
 
-    box-shadow:
-        0 0 15px white,
-        0 0 40px white,
-        0 0 80px rgba(255,255,255,.6);
+    justify-content: center;
+
+    background: #000;
+
+    overflow: hidden;
+}
+
+.hero-image {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    opacity: 0;
 
     transform:
-        translate(-50%, -50%)
-        scale(0);
+        scale(1.08);
+
+    filter:
+        blur(14px)
+        brightness(.55);
+
+    animation:
+        heroReveal
+        1.5s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+
+    animation-delay:
+        2.75s;
+}
+
+
+/* =================================================
+   SCROLL INDICATOR
+================================================= */
+
+.scrollHint {
+
+    position: absolute;
+
+    bottom: 30px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 5;
+
+    text-align: center;
+
+    font-size: 11px;
+
+    letter-spacing:
+        .25em;
 
     opacity: 0;
 
     animation:
-        finalLight
-        .7s
+        scrollHint
+        1s
         ease-out
         forwards;
 
     animation-delay:
-        2.35s;
+        4s;
+}
+
+.scrollArrow {
+
+    display: block;
+
+    margin-top: 10px;
+
+    width: 12px;
+    height: 12px;
+
+    border-right:
+        1px solid rgba(255,255,255,.6);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.6);
+
+    transform:
+        rotate(45deg);
+
+    margin-left: auto;
+    margin-right: auto;
+
+    animation:
+        arrowMove
+        1.5s
+        ease-in-out
+        infinite;
 }
 
 
-/* =========================================
-   IMAGE REVEAL
-========================================= */
+/* =================================================
+   LEADERBOARD SECTION
+================================================= */
 
-@keyframes revealImage {
+.leaderboard {
 
-    0% {
+    position: relative;
 
-        opacity: 0;
+    min-height: 100vh;
 
-        transform:
-            scale(1.08);
+    padding:
+        140px
+        7vw
+        180px;
 
-        filter:
-            blur(14px)
-            brightness(.55);
-    }
+    overflow: hidden;
 
-    45% {
+    background:
 
-        opacity: .7;
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(120,190,255,.08),
+            transparent 45%
+        ),
 
-        transform:
-            scale(1.03);
-
-        filter:
-            blur(5px)
-            brightness(.8);
-    }
-
-    100% {
-
-        opacity: 1;
-
-        transform:
-            scale(1);
-
-        filter:
-            blur(0)
-            brightness(1);
-    }
+        linear-gradient(
+            to bottom,
+            #080c12,
+            #05070a
+        );
 }
 
 
-/* =========================================
-   INTRO
-========================================= */
+/* =================================================
+   FLOATING TRIANGLES
+================================================= */
+
+.triangle-field {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+.triangle {
+
+    position: absolute;
+
+    bottom: -80px;
+
+    width: 0;
+    height: 0;
+
+    border-left:
+        var(--size)
+        solid transparent;
+
+    border-right:
+        var(--size)
+        solid transparent;
+
+    border-bottom:
+        calc(var(--size) * 1.7)
+        solid rgba(130,205,255,.10);
+
+    filter:
+        blur(.2px);
+
+    opacity: 0;
+
+    animation:
+        triangleFloat
+        var(--duration)
+        linear
+        infinite;
+
+    animation-delay:
+        var(--delay);
+}
+
+
+/* =================================================
+   HEADER
+================================================= */
+
+.leaderboard-header {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1100px;
+
+    margin:
+        0 auto 70px;
+
+    text-align: center;
+}
+
+.section-small {
+
+    font-size: 12px;
+
+    letter-spacing:
+        .4em;
+
+    opacity: .55;
+
+    margin-left:
+        .4em;
+}
+
+.section-title {
+
+    margin-top: 12px;
+
+    font-size:
+        clamp(34px, 5vw, 68px);
+
+    font-weight: 900;
+
+    letter-spacing:
+        .08em;
+}
+
+.section-line {
+
+    width: 120px;
+
+    height: 1px;
+
+    margin:
+        25px auto 0;
+
+    background:
+        rgba(150,215,255,.65);
+
+    box-shadow:
+        0 0 15px rgba(130,205,255,.25);
+}
+
+
+/* =================================================
+   RANK LIST
+================================================= */
+
+.rank-list {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1000px;
+
+    margin:
+        0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+/* =================================================
+   RANK CARD
+================================================= */
+
+.rank-card {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        90px
+        1fr
+        130px;
+
+    align-items: center;
+
+    min-height: 82px;
+
+    padding:
+        14px
+        25px;
+
+    border:
+        1px solid rgba(150,200,230,.10);
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.012)
+        );
+
+    backdrop-filter:
+        blur(5px);
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        background .35s ease;
+
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    animation:
+        cardReveal
+        .7s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+
+    animation-delay:
+        calc(
+            3.1s +
+            var(--index) * .055s
+        );
+}
+
+
+/* left accent */
+
+.rank-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 12px;
+    bottom: 12px;
+
+    width: 2px;
+
+    background:
+        rgba(130,205,255,.35);
+
+    opacity: .6;
+}
+
+
+/* hover */
+
+.rank-card:hover {
+
+    transform:
+        translateX(8px);
+
+    border-color:
+        rgba(150,215,255,.35);
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(130,205,255,.09),
+            rgba(255,255,255,.025)
+        );
+}
+
+
+/* =================================================
+   RANK NUMBER
+================================================= */
+
+.rank-number {
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    letter-spacing:
+        .05em;
+
+    color:
+        rgba(180,220,245,.75);
+}
+
+.rank-number::before {
+
+    content: "#";
+
+    font-size: 13px;
+
+    opacity: .5;
+
+    margin-right: 3px;
+}
+
+
+/* =================================================
+   PLAYER NAME
+================================================= */
+
+.player-name {
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    letter-spacing:
+        .03em;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/* =================================================
+   SCORE
+================================================= */
+
+.score {
+
+    text-align: right;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    color:
+        rgba(180,220,245,.85);
+
+    font-variant-numeric:
+        tabular-nums;
+}
+
+
+/* =================================================
+   FOOTER
+================================================= */
+
+.footer {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    margin-top: 120px;
+
+    font-size: 11px;
+
+    letter-spacing:
+        .25em;
+
+    opacity: .3;
+}
+
+
+/* =================================================
+   ANIMATIONS
+================================================= */
 
 @keyframes introFade {
 
     0% {
-
         clip-path:
             inset(0 0 0 0);
     }
 
     55% {
-
         clip-path:
             inset(0 0 42% 0);
     }
 
     72% {
-
         clip-path:
             inset(0 0 25% 0);
     }
 
     88% {
-
         clip-path:
             inset(0 0 8% 0);
     }
 
     100% {
-
         clip-path:
             inset(0 0 100% 0);
     }
 }
 
-
-/* =========================================
-   SCAN
-========================================= */
 
 @keyframes scanLine {
 
@@ -489,10 +826,6 @@ body {
     }
 }
 
-
-/* =========================================
-   TITLE
-========================================= */
 
 @keyframes titleAppear {
 
@@ -539,62 +872,17 @@ body {
 }
 
 
-/* =========================================
-   TITLE LINE
-========================================= */
-
 @keyframes titleLine {
 
     0% {
-
         width: 0;
     }
 
     100% {
-
         width: 180px;
     }
 }
 
-
-/* =========================================
-   FINAL LIGHT
-========================================= */
-
-@keyframes finalLight {
-
-    0% {
-
-        opacity: 0;
-
-        transform:
-            translate(-50%, -50%)
-            scale(0);
-    }
-
-    30% {
-
-        opacity: 1;
-
-        transform:
-            translate(-50%, -50%)
-            scale(3);
-    }
-
-    100% {
-
-        opacity: 0;
-
-        transform:
-            translate(-50%, -50%)
-            scale(35);
-    }
-}
-
-
-/* =========================================
-   FLASH
-========================================= */
 
 @keyframes flash {
 
@@ -616,30 +904,191 @@ body {
 }
 
 
-/* =========================================
-   REDUCED MOTION
-========================================= */
+@keyframes heroReveal {
 
-@media (prefers-reduced-motion: reduce) {
+    0% {
 
-    .image {
+        opacity: 0;
 
-        animation: none;
+        transform:
+            scale(1.08);
+
+        filter:
+            blur(14px)
+            brightness(.55);
+    }
+
+    45% {
+
+        opacity: .7;
+
+        transform:
+            scale(1.03);
+
+        filter:
+            blur(5px)
+            brightness(.8);
+    }
+
+    100% {
 
         opacity: 1;
 
-        transform: none;
+        transform:
+            scale(1);
 
-        filter: none;
+        filter:
+            blur(0)
+            brightness(1);
+    }
+}
+
+
+@keyframes scrollHint {
+
+    0% {
+        opacity: 0;
     }
 
-    .intro,
-    .scan,
-    .title,
-    .flash,
-    .finalLight {
+    100% {
+        opacity: .6;
+    }
+}
 
-        display: none;
+
+@keyframes arrowMove {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(45deg);
+
+        opacity: .4;
+    }
+
+    50% {
+
+        transform:
+            translateY(7px)
+            rotate(45deg);
+
+        opacity: .9;
+    }
+}
+
+
+@keyframes cardReveal {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(35px);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =================================================
+   TRIANGLE FLOAT
+================================================= */
+
+@keyframes triangleFloat {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(0)
+            translateX(0)
+            rotate(0deg);
+    }
+
+    10% {
+
+        opacity: .45;
+    }
+
+    50% {
+
+        opacity: .25;
+
+        transform:
+            translateY(-55vh)
+            translateX(50px)
+            rotate(90deg);
+    }
+
+    85% {
+
+        opacity: .15;
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translateY(-115vh)
+            translateX(-40px)
+            rotate(180deg);
+    }
+}
+
+
+/* =================================================
+   MOBILE
+================================================= */
+
+@media (max-width: 700px) {
+
+    .leaderboard {
+
+        padding:
+            100px 18px 130px;
+    }
+
+    .rank-card {
+
+        grid-template-columns:
+            60px
+            1fr
+            80px;
+
+        padding:
+            13px 15px;
+    }
+
+    .rank-number {
+
+        font-size: 19px;
+    }
+
+    .player-name {
+
+        font-size: 14px;
+    }
+
+    .score {
+
+        font-size: 14px;
+    }
+
+    .hero {
+
+        min-height:
+            420px;
     }
 }
 
@@ -651,20 +1100,9 @@ body {
 <body>
 
 
-<!-- =========================================
-     IMAGE B
-========================================= -->
-
-<img
-    class="image"
-    src="image-B.png"
-    alt="Peroro 5th Club Leaderboard"
->
-
-
-<!-- =========================================
-     BLACK INTRO + SCAN
-========================================= -->
+<!-- =================================================
+     OPENING TRANSITION
+================================================= -->
 
 <div class="intro">
 
@@ -685,18 +1123,889 @@ body {
 </div>
 
 
-<!-- =========================================
-     FINAL LIGHT
-========================================= -->
-
-<div class="finalLight"></div>
-
-
-<!-- =========================================
-     FLASH
-========================================= -->
-
 <div class="flash"></div>
+
+
+<!-- =================================================
+     IMAGE B
+================================================= -->
+
+<section class="hero">
+
+    <img
+        class="hero-image"
+        src="image-B.png"
+        alt="Peroro 5th Club Leaderboard"
+    >
+
+    <div class="scrollHint">
+
+        SCROLL FOR RANKING
+
+        <span class="scrollArrow"></span>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     LEADERBOARD
+================================================= -->
+
+<section class="leaderboard">
+
+
+    <!-- =============================================
+         FLOATING TRIANGLES
+    ============================================== -->
+
+    <div class="triangle-field">
+
+
+        <div class="triangle"
+             style="
+                --size:18px;
+                --left:8%;
+                --duration:10s;
+                --delay:0s;
+             ">
+        </div>
+
+
+        <div class="triangle"
+             style="
+                --size:25px;
+                --left:18%;
+                --duration:13s;
+                --delay:2s;
+             ">
+        </div>
+
+
+        <div class="triangle"
+             style="
+                --size:14px;
+                --left:31%;
+                --duration:9s;
+                --delay:4s;
+             ">
+        </div>
+
+
+        <div class="triangle"
+             style="
+                --size:30px;
+                --left:44%;
+                --duration:14s;
+                --delay:1s;
+             ">
+        </div>
+
+
+        <div class="triangle"
+             style="
+                --size:17px;
+                --left:57%;
+                --duration:11s;
+                --delay:3s;
+             ">
+        </div>
+
+
+        <div class="triangle"
+             style="
+                --size:24px;
+                --left:69%;
+                --duration:12s;
+                --delay:5s;
+             ">
+        </div>
+
+
+        <div class="triangle"
+             style="
+                --size:15px;
+                --left:82%;
+                --duration:10s;
+                --delay:2s;
+             ">
+        </div>
+
+
+        <div class="triangle"
+             style="
+                --size:28px;
+                --left:93%;
+                --duration:15s;
+                --delay:6s;
+             ">
+        </div>
+
+
+    </div>
+
+
+    <!-- =============================================
+         HEADER
+    ============================================== -->
+
+    <div class="leaderboard-header">
+
+        <div class="section-small">
+            PERORO 5TH CLUB
+        </div>
+
+        <div class="section-title">
+            LEADERBOARD
+        </div>
+
+        <div class="section-line"></div>
+
+    </div>
+
+
+    <!-- =============================================
+         RANK LIST
+    ============================================== -->
+
+    <div class="rank-list">
+
+
+        <!-- Rank 6 -->
+
+        <div class="rank-card"
+             style="--index:0">
+
+            <div class="rank-number">
+                6
+            </div>
+
+            <div class="player-name">
+                「SH」雨息
+            </div>
+
+            <div class="score">
+                670
+            </div>
+
+        </div>
+
+
+        <!-- Rank 7 -->
+
+        <div class="rank-card"
+             style="--index:1">
+
+            <div class="rank-number">
+                7
+            </div>
+
+            <div class="player-name">
+                「SH」DedeMiku
+            </div>
+
+            <div class="score">
+                974
+            </div>
+
+        </div>
+
+
+        <!-- Rank 8 -->
+
+        <div class="rank-card"
+             style="--index:2">
+
+            <div class="rank-number">
+                8
+            </div>
+
+            <div class="player-name">
+                ⓋFOXSNOW✿࿐
+            </div>
+
+            <div class="score">
+                1007
+            </div>
+
+        </div>
+
+
+        <!-- Rank 9 -->
+
+        <div class="rank-card"
+             style="--index:3">
+
+            <div class="rank-number">
+                9
+            </div>
+
+            <div class="player-name">
+                Vannesith
+            </div>
+
+            <div class="score">
+                1194
+            </div>
+
+        </div>
+
+
+        <!-- Rank 10 -->
+
+        <div class="rank-card"
+             style="--index:4">
+
+            <div class="rank-number">
+                10
+            </div>
+
+            <div class="player-name">
+                「SH」Carrotic
+            </div>
+
+            <div class="score">
+                1261
+            </div>
+
+        </div>
+
+
+        <!-- Rank 11 -->
+
+        <div class="rank-card"
+             style="--index:5">
+
+            <div class="rank-number">
+                11
+            </div>
+
+            <div class="player-name">
+                「SH」Velloz
+            </div>
+
+            <div class="score">
+                1308
+            </div>
+
+        </div>
+
+
+        <!-- Rank 12 -->
+
+        <div class="rank-card"
+             style="--index:6">
+
+            <div class="rank-number">
+                12
+            </div>
+
+            <div class="player-name">
+                「SH」Miyuki
+            </div>
+
+            <div class="score">
+                1346
+            </div>
+
+        </div>
+
+
+        <!-- Rank 13 -->
+
+        <div class="rank-card"
+             style="--index:7">
+
+            <div class="rank-number">
+                13
+            </div>
+
+            <div class="player-name">
+                「SH」Keen
+            </div>
+
+            <div class="score">
+                1353
+            </div>
+
+        </div>
+
+
+        <!-- Rank 14 -->
+
+        <div class="rank-card"
+             style="--index:8">
+
+            <div class="rank-number">
+                14
+            </div>
+
+            <div class="player-name">
+                「SH」Lunari
+            </div>
+
+            <div class="score">
+                1444
+            </div>
+
+        </div>
+
+
+        <!-- Rank 15 -->
+
+        <div class="rank-card"
+             style="--index:9">
+
+            <div class="rank-number">
+                15
+            </div>
+
+            <div class="player-name">
+                「SH」Ronaldo
+            </div>
+
+            <div class="score">
+                1633
+            </div>
+
+        </div>
+
+
+        <!-- Rank 16 -->
+
+        <div class="rank-card"
+             style="--index:10">
+
+            <div class="rank-number">
+                16
+            </div>
+
+            <div class="player-name">
+                「SH」nero
+            </div>
+
+            <div class="score">
+                1962
+            </div>
+
+        </div>
+
+
+        <!-- Rank 17 -->
+
+        <div class="rank-card"
+             style="--index:11">
+
+            <div class="rank-number">
+                17
+            </div>
+
+            <div class="player-name">
+                Mthanh
+            </div>
+
+            <div class="score">
+                2327
+            </div>
+
+        </div>
+
+
+        <!-- Rank 18 -->
+
+        <div class="rank-card"
+             style="--index:12">
+
+            <div class="rank-number">
+                18
+            </div>
+
+            <div class="player-name">
+                Kargvee
+            </div>
+
+            <div class="score">
+                2819
+            </div>
+
+        </div>
+
+
+        <!-- Rank 19 -->
+
+        <div class="rank-card"
+             style="--index:13">
+
+            <div class="rank-number">
+                19
+            </div>
+
+            <div class="player-name">
+                Demornato
+            </div>
+
+            <div class="score">
+                2913
+            </div>
+
+        </div>
+
+
+        <!-- Rank 20 -->
+
+        <div class="rank-card"
+             style="--index:14">
+
+            <div class="rank-number">
+                20
+            </div>
+
+            <div class="player-name">
+                Helheim
+            </div>
+
+            <div class="score">
+                2922
+            </div>
+
+        </div>
+
+
+        <!-- Rank 21 -->
+
+        <div class="rank-card"
+             style="--index:15">
+
+            <div class="rank-number">
+                21
+            </div>
+
+            <div class="player-name">
+                ไอห๊ ยาา
+            </div>
+
+            <div class="score">
+                3196
+            </div>
+
+        </div>
+
+
+        <!-- Rank 22 -->
+
+        <div class="rank-card"
+             style="--index:16">
+
+            <div class="rank-number">
+                22
+            </div>
+
+            <div class="player-name">
+                Geeao
+            </div>
+
+            <div class="score">
+                3511
+            </div>
+
+        </div>
+
+
+        <!-- Rank 23 -->
+
+        <div class="rank-card"
+             style="--index:17">
+
+            <div class="rank-number">
+                23
+            </div>
+
+            <div class="player-name">
+                coretta
+            </div>
+
+            <div class="score">
+                3799
+            </div>
+
+        </div>
+
+
+        <!-- Rank 24 -->
+
+        <div class="rank-card"
+             style="--index:18">
+
+            <div class="rank-number">
+                24
+            </div>
+
+            <div class="player-name">
+                EmptyCup
+            </div>
+
+            <div class="score">
+                3888
+            </div>
+
+        </div>
+
+
+        <!-- Rank 25 -->
+
+        <div class="rank-card"
+             style="--index:19">
+
+            <div class="rank-number">
+                25
+            </div>
+
+            <div class="player-name">
+                Derain
+            </div>
+
+            <div class="score">
+                4993
+            </div>
+
+        </div>
+
+
+        <!-- Rank 26 -->
+
+        <div class="rank-card"
+             style="--index:20">
+
+            <div class="rank-number">
+                26
+            </div>
+
+            <div class="player-name">
+                WhoTao
+            </div>
+
+            <div class="score">
+                5335
+            </div>
+
+        </div>
+
+
+        <!-- Rank 27 -->
+
+        <div class="rank-card"
+             style="--index:21">
+
+            <div class="rank-number">
+                27
+            </div>
+
+            <div class="player-name">
+                「SH」Messi
+            </div>
+
+            <div class="score">
+                5661
+            </div>
+
+        </div>
+
+
+        <!-- Rank 28 -->
+
+        <div class="rank-card"
+             style="--index:22">
+
+            <div class="rank-number">
+                28
+            </div>
+
+            <div class="player-name">
+                Nezunanda
+            </div>
+
+            <div class="score">
+                6084
+            </div>
+
+        </div>
+
+
+        <!-- Rank 29 -->
+
+        <div class="rank-card"
+             style="--index:23">
+
+            <div class="rank-number">
+                29
+            </div>
+
+            <div class="player-name">
+                Uncle.POM
+            </div>
+
+            <div class="score">
+                6117
+            </div>
+
+        </div>
+
+
+        <!-- Rank 30 -->
+
+        <div class="rank-card"
+             style="--index:24">
+
+            <div class="rank-number">
+                30
+            </div>
+
+            <div class="player-name">
+                kondee
+            </div>
+
+            <div class="score">
+                6150
+            </div>
+
+        </div>
+
+
+        <!-- Rank 31 -->
+
+        <div class="rank-card"
+             style="--index:25">
+
+            <div class="rank-number">
+                31
+            </div>
+
+            <div class="player-name">
+                「SH」DiPa
+            </div>
+
+            <div class="score">
+                7003
+            </div>
+
+        </div>
+
+
+        <!-- Rank 32 -->
+
+        <div class="rank-card"
+             style="--index:26">
+
+            <div class="rank-number">
+                32
+            </div>
+
+            <div class="player-name">
+                S_Chainzer
+            </div>
+
+            <div class="score">
+                7486
+            </div>
+
+        </div>
+
+
+        <!-- Rank 33 -->
+
+        <div class="rank-card"
+             style="--index:27">
+
+            <div class="rank-number">
+                33
+            </div>
+
+            <div class="player-name">
+                NW2M
+            </div>
+
+            <div class="score">
+                7886
+            </div>
+
+        </div>
+
+
+        <!-- Rank 34 -->
+
+        <div class="rank-card"
+             style="--index:28">
+
+            <div class="rank-number">
+                34
+            </div>
+
+            <div class="player-name">
+                5M0K3>.<
+            </div>
+
+            <div class="score">
+                8661
+            </div>
+
+        </div>
+
+
+        <!-- Rank 35 -->
+
+        <div class="rank-card"
+             style="--index:29">
+
+            <div class="rank-number">
+                35
+            </div>
+
+            <div class="player-name">
+                「SH」Fournier
+            </div>
+
+            <div class="score">
+                8663
+            </div>
+
+        </div>
+
+
+        <!-- Rank 36 -->
+
+        <div class="rank-card"
+             style="--index:30">
+
+            <div class="rank-number">
+                36
+            </div>
+
+            <div class="player-name">
+                Astra
+            </div>
+
+            <div class="score">
+                9450
+            </div>
+
+        </div>
+
+
+        <!-- Rank 37 -->
+
+        <div class="rank-card"
+             style="--index:31">
+
+            <div class="rank-number">
+                37
+            </div>
+
+            <div class="player-name">
+                「SH」Xyren
+            </div>
+
+            <div class="score">
+                9647
+            </div>
+
+        </div>
+
+
+        <!-- Rank 38 -->
+
+        <div class="rank-card"
+             style="--index:32">
+
+            <div class="rank-number">
+                38
+            </div>
+
+            <div class="player-name">
+                Relax
+            </div>
+
+            <div class="score">
+                10345
+            </div>
+
+        </div>
+
+
+        <!-- Rank 39 -->
+
+        <div class="rank-card"
+             style="--index:33">
+
+            <div class="rank-number">
+                39
+            </div>
+
+            <div class="player-name">
+                Kiralya
+            </div>
+
+            <div class="score">
+                #N/A
+            </div>
+
+        </div>
+
+
+        <!-- Rank 40 -->
+
+        <div class="rank-card"
+             style="--index:34">
+
+            <div class="rank-number">
+                40
+            </div>
+
+            <div class="player-name">
+                ผมหวิขา้ว
+            </div>
+
+            <div class="score">
+                #N/A
+            </div>
+
+        </div>
+
+
+        <!-- Rank 41 -->
+
+        <div class="rank-card"
+             style="--index:35">
+
+            <div class="rank-number">
+                41
+            </div>
+
+            <div class="player-name">
+                j4k4l41238325
+            </div>
+
+            <div class="score">
+                #N/A
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================= -->
+
+    <div class="footer">
+
+        PERORO 5TH CLUB · END OF RANKING
+
+    </div>
+
+
+</section>
 
 
 </body>
